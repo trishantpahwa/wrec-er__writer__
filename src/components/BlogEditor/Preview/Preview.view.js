@@ -27,6 +27,7 @@ export default function PreviewView(props) {
 		if(codePenHash && codePenHash.length) {
 			codePenHash.forEach((_codePenHash) => {
 				hash = _codePenHash.split('"')[1].split('/').pop();
+                                // Adjust iframe height using css
 				md = md.replace(_codePenHash, `<iframe height="500" width="95%" scrolling="no" src="https://codepen.io/trishantpahwa/embed/` + hash + `?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">See the Pen <a href="https://codepen.io/trishantpahwa/pen/">` + hash + `Solution1</a> by Trishant Pahwa (<a href="https://codepen.io/trishantpahwa">@trishantpahwa</a>)on <a href="https://codepen.io">CodePen</a>.</iframe>`);
 			})
 		}

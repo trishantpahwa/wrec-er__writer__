@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 
 import { BlogEditor } from './components';
+import { BlogLister } from './components';
+
 
 import { actions } from './app/services';
 
@@ -12,10 +14,12 @@ function App() {
 	useEffect(() => {
 		dispatch(actions.BlogsActions.getAllBlogsAction());
 	}, []);
+
 	return (
 		<div className="App">
 			<header className="App-header">
 				<BlogEditor />
+				{/* <BlogLister /> */}
 			</header>
 		</div>
 	);
