@@ -1,15 +1,10 @@
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import marked from 'marked';
-import Codepen from "react-codepen-embed";
 
 export default function PreviewView(props) {
-	const [ title, setTitle ] = useState('');
-	const [ images, setImages ] = useState([]);
-
-	const handleTitle = (e) => {
-		e.preventDefault();
-		setTitle(e.target.value);
-	};
+	const { id } = useParams();
+	const [images, setImages] = useState([]);
 
 	const handleImages = (e) => {
 		var _images = [];
@@ -24,10 +19,10 @@ export default function PreviewView(props) {
 		const codePenHashRegex = new RegExp("<codepen src=\"(.*)\"\ />", 'gm');
 		const codePenHash = md.match(codePenHashRegex);
 		let hash;
-		if(codePenHash && codePenHash.length) {
+		if (codePenHash && codePenHash.length) {
 			codePenHash.forEach((_codePenHash) => {
 				hash = _codePenHash.split('"')[1].split('/').pop();
-                                // Adjust iframe height using css
+				// Adjust iframe height using css
 				md = md.replace(_codePenHash, `<iframe height="500" width="95%" scrolling="no" src="https://codepen.io/trishantpahwa/embed/` + hash + `?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">See the Pen <a href="https://codepen.io/trishantpahwa/pen/">` + hash + `Solution1</a> by Trishant Pahwa (<a href="https://codepen.io/trishantpahwa">@trishantpahwa</a>)on <a href="https://codepen.io">CodePen</a>.</iframe>`);
 			})
 		}
@@ -37,17 +32,9 @@ export default function PreviewView(props) {
 	return (
 		<div className="preview">
 			<div>
-				<input type="text" onChange={handleTitle} />
-				<button
-					onClick={async () => {
-						props.onCreate(title);
-					}}
-				>
-					Create Blog
-				</button>
 				<button
 					onClick={() => {
-						props.onPublish(title);
+						props.onPublish(id);
 					}}
 				>
 					Publish
@@ -55,7 +42,7 @@ export default function PreviewView(props) {
 				<input type="file" onChange={handleImages} multiple />
 				<button
 					onClick={() => {
-						props.storeImages(title, images);
+						props.storeImages(id, images);
 					}}
 				>
 					Store Images

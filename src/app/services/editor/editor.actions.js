@@ -25,22 +25,24 @@ const EditorActions = {
 		};
 	},
 	createBlog: (title) => {
-		// const create = (title) => ({ type: 'CREATE_BLOG', title: title });
+		const create = (title, data) => ({ type: 'CREATE_BLOG', title: title, data: data });
 		return async (dispatch) => {
 			try {
-                // dispatch(create(title))
-				await EditorService.createBlog(title);
+				const data = await EditorService.createBlog(title);
+				const blogID = data.Key.split('meta')[1].split('/')[0];
+                dispatch(create(title, blogID))
 			} catch (err) {
 				console.log(err);
 			}
 		};
 	},
     publishBlog: (blogID, code) => {
-		// const create = (title) => ({ type: 'CREATE_BLOG', title: title });
+		const create = (title, data) => ({ type: 'CREATE_BLOG', title: title, data: data });
 		return async (dispatch) => {
 			try {
-                // dispatch(create(title))
-				await EditorService.publishBlog(blogID, code);
+				const data = await EditorService.publishBlog(blogID, code);
+				console.log(data);
+                dispatch(create(blogID, data))
 			} catch (err) {
 				console.log(err);
 			}

@@ -18,6 +18,12 @@ const S3Service = {
         const bucketParams = { Bucket: process.env.BUCKET_NAME || 'wrec-er', Key: key, Body: body, ...options };
         const response = await s3.upload(bucketParams).promise();
         return response;
+    },
+    deleteObject: async (fileName) => {
+        const s3 = new AWS.S3();
+        const bucketParams = { Bucket: process.env.BUCKET_NAME || 'wrec-er', Key: fileName };
+        const response = await s3.deleteObject(bucketParams).promise();
+        return response;
     }
 }
 

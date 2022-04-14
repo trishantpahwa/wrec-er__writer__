@@ -12,17 +12,13 @@ export default function PreviewContainer() {
 	const onPublish = (blogID) => {
 		dispatch(actions.EditorActions.publishBlog(blogID, code));
 	};
-	
-	const onCreate = (title) => {
-		dispatch(actions.EditorActions.createBlog(title));
-	}
 
 	const storeImages = (blogID, images) => {
 		if(images.length) dispatch(actions.EditorActions.storeImages(blogID, images));
 	}
 	return (
 		<div>
-			<PreviewView code={code} onPublish={onPublish} onCreate={onCreate} storeImages={storeImages} />
+			<PreviewView code={code} onPublish={onPublish} storeImages={storeImages} />
 		</div>
 	);
 }
