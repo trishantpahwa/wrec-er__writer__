@@ -11,6 +11,7 @@ function BlogListerView(props) {
 				>
 					Create Blog
 				</button>
+				<button className="logout-button" onClick={props.logout}>Logout</button>
 			</div>
 			<div className="BlogListerBlogs">
 				{props.blogs && Object.keys(props.blogs).map((key) => (

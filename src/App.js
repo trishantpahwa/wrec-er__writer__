@@ -1,27 +1,55 @@
-import './App.css';
 import {
-	BrowserRouter as Router,
-	Routes,
-	Route
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
 } from "react-router-dom";
 
-import { BlogEditor } from './components';
-import { BlogLister } from './components';
+import { Home, BlogEditor, BlogLister } from "./components";
+import "./App.css";
 
 function App() {
+  const ProtectedRoute = ({ children }) => {
+    if (window.sessionStorage.getItem("user") === "Trishant Pahwa") {
+      return children;
+    } else {
+      return <Navigate to="/" replace />;
+    }
 
-	return (
-		<div className="App">
-			<header className="App-header">
-				<Router>
-					<Routes>
-						<Route exact path="/" element={<BlogLister />} />
-						<Route path="/edit/:id" element={<BlogEditor />} />
-					</Routes>
-				</Router>
-			</header>
-		</div>
-	);
+  };
+
+  const login = () => {
+    window.sessionStorage.setItem("user", "Trishant Pahwa");
+  };
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <Router>
+          <Routes>
+            <Route exact path="/" element={<Home login={login} />} />
+            <Route
+              exact
+              path="/list"
+              element={
+                <ProtectedRoute>
+                  <BlogLister />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/edit/:id"
+              element={
+                <ProtectedRoute>
+                  <BlogEditor />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </Router>
+      </header>
+    </div>
+  );
 }
 
 export default App;

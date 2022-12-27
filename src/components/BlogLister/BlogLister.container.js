@@ -30,9 +30,14 @@ function BlogListerContainer(props) {
         }, 1000);        
     }
 
+    const logout = () => {
+        window.sessionStorage.removeItem("user");
+        window.location.reload();
+    }
+
     return (
         <div className="BlogListerContainer">
-            <BlogListerView blogs={blogs} onCreate={onCreate} handleTitle={handleTitle} onDelete={onDelete} />
+            <BlogListerView blogs={blogs} onCreate={onCreate} handleTitle={handleTitle} onDelete={onDelete} logout={logout} />
         </div>
     )
 }

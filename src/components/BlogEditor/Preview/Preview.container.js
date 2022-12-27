@@ -24,7 +24,7 @@ export default function PreviewContainer() {
   };
 
   const backToHome = () => {
-    navigate("/");
+    navigate("/list");
   };
 
   return (
