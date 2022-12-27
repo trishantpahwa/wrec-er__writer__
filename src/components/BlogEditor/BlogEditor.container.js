@@ -7,12 +7,13 @@ import BlogEditorView from './BlogEditor.view';
 function BlogEditorContainer(props) {
 
     const dispatch = useDispatch();
+
     const { id } = useParams();
     const code = useSelector((state) => !!state && state?.blogs?.data) || '';
 
     useEffect(() => {
         dispatch((actions.BlogsActions.getBlog(id)));
-    }, []);
+    }, [dispatch, id]);
 
     return (
         <div>

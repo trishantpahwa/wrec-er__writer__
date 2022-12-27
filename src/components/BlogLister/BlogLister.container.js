@@ -11,7 +11,7 @@ function BlogListerContainer(props) {
 
     useEffect(() => {
         dispatch(actions.BlogsActions.getAllBlogs());
-    }, []);
+    }, [dispatch]);
 
     const onCreate = async () => {
         dispatch(actions.EditorActions.createBlog(title));

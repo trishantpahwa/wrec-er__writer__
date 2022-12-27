@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CodeEditorView from './CodeEditor.view';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { actions } from '../../../app/services';
 
@@ -18,7 +18,7 @@ function CodeEditorContainer(props) {
 	useEffect(() => {
 		setCode((_code) => props.code);
 		dispatch(actions.EditorActions.updateEditorAction(props.code));
-	}, [props.code]);
+	}, [dispatch, props.code]);
 
 	return (
 		<div>

@@ -22,7 +22,7 @@ function BlogListerView(props) {
 							</div>
 						</a>
 						<div className="BlogTileDelete">
-							<img src="/delete-button.png" onClick={() => { props.onDelete(key) }} className="BlogTileDeleteLogo" />
+							<img src="/delete-button.png" alt="Delete" onClick={() => { props.onDelete(key) }} className="BlogTileDeleteLogo" />
 						</div>
 					</div>
 				))}

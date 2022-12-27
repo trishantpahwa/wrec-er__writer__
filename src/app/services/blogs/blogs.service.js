@@ -31,7 +31,7 @@ const BlogsService = {
     deleteBlog: async (blogID) => {
         const filesList = await S3Service.listObjects(blogID);
         await Promise.all(filesList.map(async file => {
-            const _file = await S3Service.deleteObject(file);
+            await S3Service.deleteObject(file);
             return true;
         }));
         await S3Service.deleteObject('meta/' + blogID + '.yaml');
