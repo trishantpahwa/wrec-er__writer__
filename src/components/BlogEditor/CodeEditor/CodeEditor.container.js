@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import CodeEditorView from './CodeEditor.view';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { actions } from '../../../app/services';
 
 function CodeEditorContainer(props) {
 	const dispatch = useDispatch();
-	const [ code, setCode ] = useState('');
+	const [ code, setCode ] = useState(props.code);
 
 	function onChange(newValue, e) {
 		setCode((_code) => {
@@ -16,8 +16,9 @@ function CodeEditorContainer(props) {
 	}
 
 	useEffect(() => {
-		dispatch(actions.EditorActions.updateEditorAction(code));
-	}, []);
+		setCode((_code) => props.code);
+		dispatch(actions.EditorActions.updateEditorAction(props.code));
+	}, [dispatch, props.code]);
 
 	return (
 		<div>

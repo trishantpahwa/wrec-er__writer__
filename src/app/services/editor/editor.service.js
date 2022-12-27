@@ -27,8 +27,7 @@ function YAMLgenerator(title, tags = [], images = []) {
 
 const EditorService = {
 	createBlog: async (title) => {
-		const a = await S3Service.upload('meta/' + new Date().getTime() + '.yaml', YAMLgenerator(title));
-		console.log(a);
+		return await S3Service.upload('meta/' + new Date().getTime() + '.yaml', YAMLgenerator(title));
 	},
 	publishBlog: async (blogID, code) => {
 		const a = await S3Service.upload(blogID + '/data.md', code);
