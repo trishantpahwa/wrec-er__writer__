@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { actions } from '../../app/services';
 import BlogListerView from './BlogLister.view';
 
 function BlogListerContainer(props) {
 
-    const navigate = useNavigate();
     const [title, setTitle] = useState('');
     const dispatch = useDispatch();
     const blogs = useSelector((state) => !!state.blogs && state.blogs?.metaData) || {};
