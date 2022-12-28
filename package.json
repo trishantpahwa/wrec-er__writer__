@@ -2,7 +2,9 @@
   "name": "wrec-er__writer__",
   "version": "0.1.0",
   "private": true,
-  "main": "electron-starter.js",
+  "main": "public/electron.js",
+  "author": "Trishant Pahwa",
+  "homepage": "./",
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
     "@testing-library/jest-dom": "^4.2.4",
@@ -23,7 +25,8 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "electron": "electron ."
+    "electron": "electron .",
+    "electron:build": "npm run build && electron-builder build --mac -c.extraMetadata.main=build/electron.js && cp start.sh ./dist/mac-arm64 && cp -r build ./dist/mac-arm64"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,12 +45,27 @@
   },
   "devDependencies": {
     "electron": "^12.2.3",
+    "electron-builder": "^23.6.0",
     "monaco-editor-webpack-plugin": "^3.1.0",
     "react-app-rewired": "^2.1.11",
     "redux-logger": "^3.0.6",
     "style-loader": "^2.0.0"
   },
   "react-dotenv": {
-    "whitelist": ["REACT_APP_AWS_ACCESS_KEY", "REACT_APP_AWS_SECRET_KEY", "REACT_APP_AWS_REGION"]
+    "whitelist": [
+      "REACT_APP_AWS_ACCESS_KEY",
+      "REACT_APP_AWS_SECRET_KEY",
+      "REACT_APP_AWS_REGION"
+    ]
+  },
+  "build": {
+    "appId": "com.trishantpahwa.wrec-er__writer__",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
   }
 }
