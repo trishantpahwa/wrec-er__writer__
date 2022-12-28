@@ -14,7 +14,7 @@ export default function HomeContainer(props) {
 
   const submit = (e) => {
     if (e.key === "Enter") {
-      if (password === "password") {
+      if (password === "qbttxpse") {
         props.login();
         navigate("/list");
       } 
