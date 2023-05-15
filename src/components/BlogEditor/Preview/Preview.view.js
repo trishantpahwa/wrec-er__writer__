@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import marked from "marked";
+import Markdown from "marked-react";
 
 export default function PreviewView(props) {
   const { id } = useParams();
@@ -57,11 +57,7 @@ export default function PreviewView(props) {
         <button onClick={props.backToHome}>Back to Home</button>
       </div>
       <div className="markdown-to-html">
-        <div
-          dangerouslySetInnerHTML={{
-            __html: marked(replaceCodePenTag(props.code)),
-          }}
-        />
+        <Markdown>{replaceCodePenTag(props.code)}</Markdown>
       </div>
     </div>
   );

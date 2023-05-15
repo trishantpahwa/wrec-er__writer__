@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import HomeView from "./Home.view";
 
 export default function HomeContainer(props) {
-
   const navigate = useNavigate();
 
   const [password, setPassword] = useState("");
@@ -14,16 +13,20 @@ export default function HomeContainer(props) {
 
   const submit = (e) => {
     if (e.key === "Enter") {
-      if (password === "qbttxpse") {
+      if (password === process.env.REACT_APP_PASSWORD) {
         props.login();
         navigate("/list");
-      } 
+      }
     }
   };
 
   return (
     <div className="HomeContainer">
-      <HomeView password={password} onPasswordInput={onPasswordInput} submit={submit} />
+      <HomeView
+        password={password}
+        onPasswordInput={onPasswordInput}
+        submit={submit}
+      />
     </div>
   );
 }
