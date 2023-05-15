@@ -1,5 +1,5 @@
 module.exports = {
-	code: `# Header 1 #
+  code: `# Header 1 #
 ## Header 2 ##
 ### Header 3 ###             (Hashes on right are optional)
 ## Markdown plus h2 with a custom ID ##   {#id-goes-here}
@@ -103,5 +103,5 @@ Pop
 * Multiple definitions and terms are possible
 * Definitions can include multiple paragraphs too
 
-*[ABBR]: Markdown plus abbreviations (produces an <abbr> tag)`
+*[ABBR]: Markdown plus abbreviations (produces an <abbr> tag)`,
 };

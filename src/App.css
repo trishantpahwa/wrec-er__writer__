@@ -38,12 +38,12 @@
   }
 } */
 .BlogView {
-	display: flex;
+  display: flex;
 }
 
 .editor {
-	height: 100vh;
-	width: 50vw;
+  height: 100vh;
+  width: 50vw;
   overflow: hidden;
 }
 
@@ -54,8 +54,8 @@
 }
 
 .markdown-to-html {
-	height: 100%;
-	width: 50vw;
+  height: 100%;
+  width: 50vw;
   word-wrap: break-word;
   overflow-y: scroll;
   background-color: black;
@@ -103,7 +103,7 @@
 .createBlogButton {
   border-radius: 10px;
   margin-left: 1%;
-  background-color: #BAB86C;
+  background-color: #bab86c;
   color: green;
   height: 180%;
   margin-right: 47%;
@@ -155,7 +155,7 @@ a {
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 100%
+  width: 100%;
 }
 
 .password {
@@ -166,7 +166,7 @@ a {
 .logout-button {
   border-radius: 10px;
   margin-left: 1%;
-  background-color: #BAB86C;
+  background-color: #bab86c;
   color: green;
   height: 180%;
   justify-content: flex-end;

@@ -1,13 +1,12 @@
 import PreviewView from "./Preview.view";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { actions } from "../../../app/services";
 
 export default function PreviewContainer() {
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
+
   let code =
     useSelector(
       (state) =>

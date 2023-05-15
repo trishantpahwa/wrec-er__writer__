@@ -1,19 +1,19 @@
-import { BlogsActions, BlogsReducer, BlogsService } from './blogs';
-import { EditorActions, EditorReducer } from './editor';
-import { combineReducers } from 'redux';
+import { BlogsActions, BlogsReducer, BlogsService } from "./blogs";
+import { EditorActions, EditorReducer } from "./editor";
+import { combineReducers } from "redux";
 
 const reducers = combineReducers({
-	blogs: BlogsReducer,
-	editor: EditorReducer
+  blogs: BlogsReducer,
+  editor: EditorReducer,
 });
 
 const actions = {
-	BlogsActions,
-    EditorActions
+  BlogsActions,
+  EditorActions,
 };
 
 const services = {
-	BlogsService
+  BlogsService,
 };
 
 export { actions, reducers, services };

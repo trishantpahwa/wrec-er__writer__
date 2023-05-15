@@ -1,6 +1,6 @@
-# wrec-er__writer__
-Blog writer for wrec-er
+# wrec-er**writer**
 
+Blog writer for wrec-er
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 

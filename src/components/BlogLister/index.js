@@ -1,3 +1,3 @@
-import BlogLister from './BlogLister.container';
+import BlogLister from "./BlogLister.container";
 
 export default BlogLister;

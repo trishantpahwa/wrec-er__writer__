@@ -15,7 +15,6 @@ function App() {
     } else {
       return <Navigate to="/" replace />;
     }
-
   };
 
   const login = () => {
